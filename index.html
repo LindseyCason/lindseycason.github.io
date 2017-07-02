@@ -8,7 +8,7 @@
                 /*background:;*/
                 color: rgb(241, 194, 109);
                 padding: 50px;
-                font-family: "Century Gothic";
+                font-family: "Century Gothic", "Helvetica";
     
             }
             header {
@@ -20,10 +20,10 @@
                 max-width: 800px;
                 margin: auto;
                 background: rgba(0,0,0,1);
-                opacity:;
-                border: 5px solid transparent;
-                border-color: rgba(241, 194, 109, .6);
-                border-radius: 25px;
+                box-shadow: 0px 0px 100px #b28940;
+                border: 2px solid transparent;
+                border-color: rgba(241, 194, 109, 1);
+                border-radius: 150px;
                
 
                 
@@ -31,40 +31,45 @@
     
             /* navigation menu */
             nav {
-                background: rgba(241, 194, 109,0.7);
-                text-align: center;
+                background: linear-gradient(to bottom, rgba(241,194,109, 1), rgba(241,194,109,0));
                 margin: 0 auto;
                 margin-bottom: 20px;
-                display: flex;
-                padding: 10px;
-                border-radius: 25px;
+                display: center;
+                padding: 25px;
+                border-radius: 200px;
+
             }
             nav header {
-                display: flex;
-                align-items: center;
+                display: center;
                 color: rgb(0, 0, 0);
                 flex: auto;
-                /*text-shadow: 1px 1px black;*/
-                font-family: "Century Gothic";
-                font-size: 50px;
+                font-family: "Century Gothic", "helvetica";
+                font-size: 75px;
                 
                 
             }
             nav ul {
-                font-family: "Century Gothic";
+                font-family: "Century Gothic", "Helvetica";
                 font-size: 20px;
-                align-items: center;
                 color: rgb(0,0,0);
-                flex: auto;
-                /*text-shadow: 1px 1px black;*/
+                text-align: center;
             }
             nav li {
                 display: inline-block;
                 padding: 0 10px;
+                
+                
+            }
+            a:hover {
+                color: #ffffff;
             }
             nav a {
                 text-decoration: none;
-                color: #fff;
+                color: #000000;
+                border: 2px solid;
+                border-radius: 25px;
+                background: #b28940;
+                padding: 5px;
             }
     
             /* main container area beneath menu */
@@ -78,18 +83,25 @@
                 
             }
             [class=sidebar] img {
+               /* width: 300px;
+                display: block;
+                margin: auto;
+                border: 10px solid;
+                border-color: rgba(241, 194, 109, 1);
+                border-radius: 200px;*/
+            
+            }
+            [class=image] img{
                 width: 300px;
                 display: block;
                 margin: auto;
-                width: ;
-                border: 10px solid;
-                border-color: rgba(241, 194, 109, .6);
-                border-radius: 25px;
-            
+                border: 3px solid;
+                border-color: rgba(241, 194, 109, 1);
+                border-radius: 200px;
             }
             [class=content] {
                 text-align: center;
-                color: rgba(241, 194, 109, .6);
+                color: rgba(241, 194, 109, 1);
                 font-family: "Century Gothic";
                 font-size: 150%;
                 flex: 1;
@@ -97,9 +109,8 @@
             }
             [class=interests] {
                 /*text-align: center;*/
-                font-size: ;
-                color: rgba(241, 194, 109, .6);
-                font-family: "Century Gothic";
+                color: rgba(241, 194, 109, 1);
+                font-family: "Century Gothic", "Helvetica";
                 padding: 25px;
             }
             
@@ -108,21 +119,23 @@
     
     <body>
         <div id="all-contents">
+            
             <div class="sidebar">
                 <nav>
-                <header>WELCOME</header><p></p>
+                <header><img src="http://i.imgur.com/FT8jPOi.png" class="no class" alt="Welcome" height="86" width"300"></header>
                 <ul>
-                    <li><a href="index.html">Home</a></li><p></p>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="resume.html">Resume</a></li>
                 </ul>
             </nav>
-            
+            </div>
+            <div class ="image">
             <img src="http://bit.ly/LCImage" alt="Lindsey Cason" height="300" width="300">
-        
             </div>
     
                 <div class="content">
-                    <header><img src="http://i.imgur.com/EcqhfHC.png"></a></header>
+                    <header><img src="http://i.imgur.com/EcqhfHC.png" class="no class" alt="Lindsey Cason"></a></header>
                     <p>Graphic Designer</p>
                 </div>
                 
