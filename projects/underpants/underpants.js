@@ -307,7 +307,7 @@ _.unique = function (array) {
 
 _.map = function(array, action) {
     var newArray = []
-    _.filter(array, function(e,i,c){
+    _.each(array, function(e,i,c){
         newArray.push(action(e,i,c));
     })
 return newArray;
@@ -380,6 +380,35 @@ _.contains = function(array,value) {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+_.every = function(collection, action) {
+    if(action === undefined) {
+        var resultA = true;
+        _.each(collection, function(e, i, c) {
+
+        if(action === undefined) {
+            if(e === null || e === NaN || e === 0 || e === "" || e === undefined) {
+                resultA = false;
+            }
+        }
+        });
+        return resultA;
+    
+        }else {
+            var resultB = true;
+            _.each(collection, function(e, i, c) {
+            if(!action(e, i, c)){
+                resultB = false;
+            }
+            });
+    
+    return resultB;
+}
+}
+
+
+   
+    
+
 
 /** _.some()
 * Arguments:
@@ -402,6 +431,35 @@ _.contains = function(array,value) {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = function(collection, action) {
+    if(action === undefined) {
+        var resultA = true;
+        _.each(collection, function(e, i, c) {
+
+        if(action === undefined) {
+            if(e === null || e === NaN || e === 0 || e === "" || e === undefined) {
+                resultA = false;
+            }
+        }
+        });
+        return resultA;
+    
+        }else {
+            var resultB = false;
+            _.each(collection, function(e, i, c) {
+            if(action(e, i, c)){
+                resultB = true;
+            }
+            });
+    
+    return resultB;
+}
+};
+
+
+
+
+
 
 /** _.reduce()
 * Arguments:
@@ -421,7 +479,35 @@ _.contains = function(array,value) {
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
+///////////////////////////////////////////
 
+
+_.reduce = function(array, func, seed) {
+_.each(array, function(e, i,c) {
+    if(seed === undefined) {
+        seed = array[0];
+    }else {
+    seed = func(seed, e, i);
+}
+
+});
+return seed;
+}
+
+//////////////////////////
+// function reduce(array, func, seed) {
+//     let 
+//         combined = seed,
+//         i = 0;
+//     if(combined === undefined) {
+//         combined = array [0];
+//         i=1;
+// }
+// for(; i<array.length; i++) {
+//     combined = func(combined, array[i], i, array);
+// }
+// return combined;
+/////////////////////////
 
 /** _.extend()
 * Arguments:
@@ -437,6 +523,21 @@ _.contains = function(array,value) {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+//name function that takes parameters of objects
+//copy properties from obj2 to obj1.
+//make code to copy any objects properties to obj1
+//return new obj1
+
+_.extend = function(obj1){
+    var args = Array.from(arguments);
+    _.each(arguments, function (e, i, c) {
+    for(var key in e) {
+        obj1[key] = e[key];
+    }
+    });
+    return obj1;
+};
 
 
 // This is the proper way to end a javascript library

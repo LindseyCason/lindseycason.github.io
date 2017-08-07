@@ -118,32 +118,54 @@ function isFriend(name, object) {
 }
 ///////////////////////////////////
 //25
+function nonFriends (name, list) {
+  var result = [];
+  for (var i = 0; i < list.length; i++) {
+    if (!isFriend(name, list[i]) && list[i].name !== name) {
+      result.push(list[i].name);
+    }
+  }
+  return result;
+}
 
-// function nonFriends(name, friends) {
-    
-// }
 
 ///////////////////////////////////
 //26
 
-
 function updateObject(object, key, value) {
- if(object.hasOwnProperty(key)) {
-    object[key] = value;
-    } else if (!object.hasOwnProperty(key)) {
-      object[key]=value;
-    }
+    if (object[key] !== null) { // if object[key] exists, update it's value with new <value>
+        object[key] = value
+    } else if (object[key] === null) { // if object[key] does not exist, create it and set it's value to <value>
+        object[key] = value
+    } return object;
 }
 
 ///////////////////////////////////////////
 //27
 
-function removeProperty(object, string) {
-for(var i = 0; i == string.length; i++) {
-  if(object.hasOwnProperty(i)) {
-    delete object[i];
+function removeProperties(object, array) {
+    for (var i = 0; i < array.length; i++) { // loop through the object
+        for (var key in object) {
+            if (key === array[i]) { // if a key matches something in the array, delete that key
+                delete object[key];
+            }
+        }
+    } return object;
 }
-}}
+//////////////////////////////
+//28
+function dedup(data) {
+    var duplicates = [];
+    var newArray = [];
+    for (var i = 0; i < data.length; i++) { // loop through <data> to see if any value exist in duplicates
+        if (!(data[i] in duplicates)) { // if data[i] is not found in duplicates, push data[i] to the newArray
+            newArray.push(data[i]);
+            duplicates[data[i]] = true;
+        }
+    }
+    return newArray;
+}
+
 
 
 
